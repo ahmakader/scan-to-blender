@@ -30,9 +30,9 @@ place on the web for everything the scan can't see.
 
 ```bash
 # personal skill (all projects)
-git clone https://github.com/<you>/scan-to-blender ~/.claude/skills/scan-to-blender
+git clone https://github.com/ahmakader/scan-to-blender ~/.claude/skills/scan-to-blender
 # or per project
-git clone https://github.com/<you>/scan-to-blender .claude/skills/scan-to-blender
+git clone https://github.com/ahmakader/scan-to-blender .claude/skills/scan-to-blender
 pip install -r ~/.claude/skills/scan-to-blender/requirements.txt
 ```
 
