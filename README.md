@@ -4,8 +4,54 @@ A Claude Code **skill** that turns a 3D scan of a real place into a detailed, la
 scene. It accepts a Gaussian splat, a point cloud or a textured GLB/OBJ mesh. The skill researches the
 place on the web for everything the scan can't see.
 
-![example](examples/contact_sheet.jpg)
-*Example: a beach resort in Lombok, rebuilt from a drone scan (point cloud + GLB) plus web research.*
+<p align="center">
+  <img src="examples/wipe_aerial.gif" width="49%" alt="Wipe between the Blender model and the drone scan, aerial view">
+  <img src="examples/wipe_top_down.gif" width="49%" alt="Wipe between the Blender model and the drone scan, top-down view">
+</p>
+
+*Example: a beach resort in Lombok, rebuilt from a drone scan (point cloud + GLB) plus web research.
+Left of the yellow line is the Blender model; right of it is the original scan, seen from the same camera.*
+
+## Scan vs. Blender model
+
+The finished scene keeps the scan as an aligned, hidden reference layer. Every comparison below renders
+the scan and the model from **the same Blender camera**, with no manual lining-up.
+
+![Top-down: scan vs model](examples/compare_top_down.jpg)
+![Aerial from the sea: scan vs model](examples/compare_aerial.jpg)
+![From the headland: scan vs model](examples/compare_headland.jpg)
+![Pool drone: scan vs model](examples/compare_pool.jpg)
+
+**Alignment check.** These are 50 % blends of scan and model. The villa outlines, restaurant roof, pool,
+beach line and shoreline coincide in every view. One known difference: the restaurant's back wing is
+slightly longer in the scan than in the model.
+
+![50% overlay of scan and model](examples/alignment_overlay.jpg)
+
+The pool view shows why research matters. From low angles the scan is a blob of melted palms, so the
+pool deck, cabanas, bean bags and palm species were rebuilt from the resort's own photos.
+
+## How it works, step by step
+
+![Pipeline steps](examples/pipeline_steps.jpg)
+
+| # | Step | What happens |
+|---|---|---|
+| 1–2 | **Read the scan** | The point cloud (1.46 M pts) gives the ~1 km surroundings. The textured GLB gives the site. They share one coordinate frame. |
+| 3 | **Orthophoto** | An 8K emission-shaded top view of the mesh, with a JSON that maps pixels to world coordinates. |
+| 4 | **Metric scale** | Measured from parked cars (0.078 units = 4.6 m), giving 60 m per unit. Cross-checked against pool and villa sizes from research. |
+| 5 | **Levelling** | The scan was tilted 5.8°. An IRLS plane fit on the sea surface removes it. The compound plane comes out parallel, at 4.6 m above sea level. |
+| 6 | **Height map** | A 0.3 m DSM in the levelled site frame. A percentile filter gives the bare ground; relative height gives storeys. |
+| 7 | **Segmentation** | Elevated, non-green regions are roofs (63 regions); elevated green regions are tree canopies (positions feed the vegetation). |
+| 8 | **Tracing** | The ortho is rotated to the site grid (dominant angle −24°) and footprints are traced on labelled grid crops. Segmentation merges terraced blocks, so it serves only as a hint. |
+| 9 | **Overlay** | Traced layout on the scan, approved before the full build. |
+| 10 | **Terrain** | The levelled scan near the site and the scanned eastern ridge, plus a modelled steep headland (a scan blind spot), a curved bay and a lagoon seabed with a reef drop-off. |
+| 11 | **Material masks** | Lawn, dry grass, raked sand, paving and beach, from ortho colour plus the layout. They drive both shaders and Geometry Nodes scattering. |
+| 12 | **Render-review loop** | Eight rounds of low-res renders, contact sheet, fix. Round 1 came out black because of world-volume haze plus a sun lamp; this is now in `references/pitfalls.md`. |
+
+## Final renders
+
+![All eight cameras](examples/contact_sheet.jpg)
 
 ## What it does
 
@@ -66,6 +112,7 @@ scripts/render_views.py       Blender: emission orthophoto (+ pixel<->world json
 scripts/level_and_dsm.py      fit plane, dominant angle, site frame, DSM/ground/footprints/trees
 scripts/grid_crop.py          labelled metric grid crops for tracing and measuring, with overlays
 scripts/contact_sheet.py      preview grid of renders
+scripts/compare_scan_model.py render the scan from the model's cameras + side-by-sides, overlays, wipe GIFs
 scripts/render_cameras.py     Blender: render all/some cameras on GPU
 scripts/viewport_light.py     Blender: make the .blend light to navigate (renders unchanged)
 templates/build/              layout + build templates and libraries (mesh builder, materials,

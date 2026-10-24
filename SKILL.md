@@ -110,7 +110,9 @@ instanced; ground cover scattered by masks from the ortho; surroundings to the h
 
 After every build: render all cameras at ~1280 px / 32 spp → `scripts/contact_sheet.py` → **look**
 → list defects → fix → repeat. Typical 4–8 rounds. Each round also check:
-- top-down overlay of model vs `Scan_Reference` (alignment proof)
+- alignment proof: `blender -b scene.blend -P scripts/compare_scan_model.py -- render <cams> 1600 <dir>` then
+  `python scripts/compare_scan_model.py build <dir> <renders> <cams>`. Every 50 % overlay must show walls, roof edges,
+  pools and shorelines coinciding. Fix the layout until they do, and report any residual difference honestly
 - cameras not inside walls or under ground (`ground(x,y) + 1.7` for eye level)
 - no seams between detailed and coarse terrain, no terrain inside pools/water
 - colours read as in the reference photos (linear vs sRGB!)
@@ -118,7 +120,8 @@ After every build: render all cameras at ~1280 px / 32 spp → `scripts/contact_
 Finish with: `scripts/viewport_light.py` (heavy scatters viewport-off/render-on, scan excluded,
 ocean low-res in viewport — then a test render proving renders are unchanged), final renders at
 2560×1440, and a `README.md` stating what came from the scan, research, and invention, plus
-rebuild steps. Report honestly what is estimated.
+rebuild steps, plus scan-vs-model side-by-sides and wipe GIFs from the same cameras. Report honestly what
+is estimated.
 
 ## Communication
 
