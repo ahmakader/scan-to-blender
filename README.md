@@ -5,8 +5,7 @@ scene. It accepts a Gaussian splat, a point cloud or a textured GLB/OBJ mesh. Th
 place on the web for everything the scan can't see.
 
 <p align="center">
-  <img src="examples/wipe_aerial.gif" width="49%" alt="Wipe between the Blender model and the drone scan, aerial view">
-  <img src="examples/wipe_top_down.gif" width="49%" alt="Wipe between the Blender model and the drone scan, top-down view">
+  <img src="examples/wipe_aerial.gif" width="80%" alt="Wipe between the Blender model and the drone scan, aerial view">
 </p>
 
 *Example: a beach resort in Lombok, rebuilt from a drone scan (point cloud + GLB) plus web research.
