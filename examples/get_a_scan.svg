@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 262" role="img" aria-labelledby="t d">
+  <title id="t">No scan yet?</title>
+  <desc id="d">Film with a drone or phone, upload to Luma, Polycam or Scaniverse, export a .ply splat or .glb mesh, then run scan-to-blender to get an editable Blender scene.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1F5D56"/>
+      <stop offset="0.6" stop-color="#16302C"/>
+      <stop offset="1" stop-color="#0A0B0F"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0.25" r="0.7">
+      <stop offset="0" stop-color="#D3722A" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#D3722A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <rect x="1" y="1" width="758" height="260" rx="22" fill="url(#bg)" stroke="#2E8B7F" stroke-width="2"/>
+    <rect x="1" y="1" width="758" height="260" rx="22" fill="url(#glow)"/>
+    <text id="head" x="28" y="62" font-size="42" font-weight="800" fill="#F2904C" letter-spacing="0.5">NO SCAN YET?</text>
+    <text id="sub" x="28" y="92" font-size="20" fill="#F4EFE8">A drone or phone video is enough.</text>
+    <rect x="536" y="34" width="198" height="40" rx="20" fill="#F4EFE8"/>
+    <text id="pill" x="635" y="60" font-size="17" font-weight="800" fill="#0A0B0F" text-anchor="middle">Read the guide ↓</text>
+    <g id="card0">
+      <rect x="26" y="112" width="160" height="124" rx="16" fill="#F4EFE8" fill-opacity="0.09" stroke="#F4EFE8" stroke-opacity="0.18"/>
+      <circle cx="53" cy="142" r="15" fill="#D3722A"/>
+      <text x="53" y="148" font-size="17" font-weight="800" fill="#0A0B0F" text-anchor="middle">1</text>
+      <text id="title0" x="77" y="150" font-size="24" font-weight="800" fill="#F4EFE8">Film</text>
+      <text id="capa0" x="42" y="186" font-size="15.5" fill="#C9DCD6">drone or</text>
+      <text id="capb0" x="42" y="208" font-size="15.5" fill="#C9DCD6">phone video</text>
+    </g>
+    <path d="M193.0 134 L201.0 142 L193.0 150" fill="none" stroke="#F2904C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="card1">
+      <rect x="208" y="112" width="160" height="124" rx="16" fill="#F4EFE8" fill-opacity="0.09" stroke="#F4EFE8" stroke-opacity="0.18"/>
+      <circle cx="235" cy="142" r="15" fill="#D3722A"/>
+      <text x="235" y="148" font-size="17" font-weight="800" fill="#0A0B0F" text-anchor="middle">2</text>
+      <text id="title1" x="259" y="150" font-size="24" font-weight="800" fill="#F4EFE8">Upload</text>
+      <text id="capa1" x="224" y="186" font-size="15.5" fill="#C9DCD6">Luma, Polycam,</text>
+      <text id="capb1" x="224" y="208" font-size="15.5" fill="#C9DCD6">Scaniverse</text>
+    </g>
+    <path d="M375.0 134 L383.0 142 L375.0 150" fill="none" stroke="#F2904C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="card2">
+      <rect x="390" y="112" width="160" height="124" rx="16" fill="#F4EFE8" fill-opacity="0.09" stroke="#F4EFE8" stroke-opacity="0.18"/>
+      <circle cx="417" cy="142" r="15" fill="#D3722A"/>
+      <text x="417" y="148" font-size="17" font-weight="800" fill="#0A0B0F" text-anchor="middle">3</text>
+      <text id="title2" x="441" y="150" font-size="24" font-weight="800" fill="#F4EFE8">Export</text>
+      <text id="capa2" x="406" y="186" font-size="15.5" fill="#C9DCD6">.ply splat or</text>
+      <text id="capb2" x="406" y="208" font-size="15.5" fill="#C9DCD6">.glb mesh</text>
+    </g>
+    <path d="M557.0 134 L565.0 142 L557.0 150" fill="none" stroke="#F2904C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g id="card3">
+      <rect x="572" y="112" width="160" height="124" rx="16" fill="#F4EFE8" fill-opacity="0.09" stroke="#F4EFE8" stroke-opacity="0.18"/>
+      <circle cx="599" cy="142" r="15" fill="#F2904C"/>
+      <text x="599" y="148" font-size="17" font-weight="800" fill="#0A0B0F" text-anchor="middle">4</text>
+      <text id="title3" x="623" y="150" font-size="24" font-weight="800" fill="#F4EFE8">Run it</text>
+      <text id="capa3" x="588" y="186" font-size="15.5" fill="#C9DCD6">scan-to-blender</text>
+      <text id="capb3" x="588" y="208" font-size="15.5" fill="#C9DCD6">editable scene</text>
+    </g>
+    <text id="foot" x="28" y="253" font-size="13" fill="#9FB8B1">Capture tips, tool links and export steps below.</text>
+  </g>
+</svg>

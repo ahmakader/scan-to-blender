@@ -4,7 +4,9 @@ A Claude Code **skill** that turns a 3D scan of a real place into a detailed, la
 scene. It accepts a Gaussian splat, a point cloud or a textured GLB/OBJ mesh. The skill researches the
 place on the web for everything the scan can't see.
 
-No scan yet? A drone or phone video is enough: see [Get a scan first](#get-a-scan-first).
+<p align="center">
+  <a href="#get-a-scan-first"><img src="examples/get_a_scan.svg" alt="No scan yet? Film with a drone or phone, upload to Luma, Polycam or Scaniverse, export a .ply splat or .glb mesh, then run scan-to-blender" width="100%"></a>
+</p>
 
 <p align="center">
   <img src="examples/wipe_aerial.gif" width="80%" alt="Wipe between the Blender model and the drone scan, aerial view">
