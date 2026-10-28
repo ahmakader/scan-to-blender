@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 120" role="img" aria-labelledby="t d">
   <title id="t">No scan yet?</title>
-  <desc id="d">Film with a drone or phone, upload to Luma, Polycam or Scaniverse, export a splat or mesh, then run scan-to-blender. Click to read the guide.</desc>
+  <desc id="d">Film with a drone or phone, upload to Luma, Polycam or Scaniverse, export a splat or mesh, then run scan-to-blender. No scan yet? Click to read the guide.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#1F5D56"/><stop offset="0.6" stop-color="#16302C"/><stop offset="1" stop-color="#0A0B0F"/>
@@ -40,7 +40,7 @@
       <text id="t3" x="497.0" y="92" font-size="20" font-weight="800" fill="#F4EFE8" text-anchor="middle">Run it</text>
     </g>
     <rect x="578" y="16" width="166" height="88" rx="16" fill="#F2904C"/>
-    <text id="b1" x="661.0" y="56" font-size="22" font-weight="800" fill="#0A0B0F" text-anchor="middle">Click here</text>
-    <text id="b2" x="661.0" y="88" font-size="30" font-weight="800" fill="#0A0B0F" text-anchor="middle">↓</text>
+    <text id="b1" x="661.0" y="52" font-size="18" font-weight="700" fill="#0A0B0F" text-anchor="middle">No scan yet?</text>
+    <text id="b2" x="661.0" y="84" font-size="23" font-weight="800" fill="#0A0B0F" text-anchor="middle">Click here ↓</text>
   </g>
 </svg>
