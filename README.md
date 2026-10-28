@@ -16,7 +16,6 @@ Left of the yellow line is the Blender model; right of it is the original scan, 
 The finished scene keeps the scan as an aligned, hidden reference layer. Every comparison below renders
 the scan and the model from **the same Blender camera**, with no manual lining-up.
 
-![Top-down: scan vs model](examples/compare_top_down.jpg)
 ![Aerial from the sea: scan vs model](examples/compare_aerial.jpg)
 ![From the headland: scan vs model](examples/compare_headland.jpg)
 ![Pool drone: scan vs model](examples/compare_pool.jpg)
