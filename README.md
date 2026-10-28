@@ -4,6 +4,8 @@ A Claude Code **skill** that turns a 3D scan of a real place into a detailed, la
 scene. It accepts a Gaussian splat, a point cloud or a textured GLB/OBJ mesh. The skill researches the
 place on the web for everything the scan can't see.
 
+No scan yet? A drone or phone video is enough: see [Get a scan first](#get-a-scan-first).
+
 <p align="center">
   <img src="examples/wipe_aerial.gif" width="80%" alt="Wipe between the Blender model and the drone scan, aerial view">
 </p>
@@ -69,6 +71,45 @@ pool deck, cabanas, bean bags and palm species were rebuilt from the resort's ow
    cameras. It uses a clean collection hierarchy and keeps the aligned scan as an excluded reference layer.
 7. **Verifies in a loop:** low-res renders → contact sheet → fix → repeat. It then sets viewport-light
    mode and renders the finals.
+
+## Get a scan first
+
+The skill starts from a 3D scan of a place. A drone or phone video is enough: upload it to one of the apps
+below and it returns a Gaussian splat and/or a textured mesh.
+
+### 1. Capture
+
+- Move **slowly** in wide orbits around the place, with plenty of overlap between frames. The example resort
+  is a single drone flight of about 4 minutes.
+- Cover it from more than one height and angle, and avoid fast turns (motion blur ruins a scan).
+- Stay at a distance from people and private spaces, and follow your local drone rules. If the app can remove
+  people from the scan, turn it on (Luma calls it "Remove People").
+- No drone? A phone video works the same way: walk slowly around the place and film it.
+
+### 2. Turn the video into a scan
+
+| Tool | Runs on | Input | Exports | Cost |
+|---|---|---|---|---|
+| [Luma 3D Capture](https://apps.apple.com/app/luma-3d-capture/id1615849914) ([lumalabs.ai](https://lumalabs.ai/)) | iPhone app and web | Video upload, or capture in the app | Gaussian splat and textured mesh (the example used a GLB mesh and a splat PLY) | Free app |
+| [Polycam](https://poly.cam/) | iOS and web (Android makes meshes only) | Photos or video | PLY (choose **Splat PLY**; a plain PLY is a point cloud) | Free plan has no splats |
+| [Scaniverse](https://scaniverse.com/) | iOS, Android and web | Phone capture | PLY, SPZ | Free, unlimited on-device processing; paid plans add cloud processing |
+| [KIRI Engine](https://www.kiriengine.app/) | iOS, Android and web | Photos or video | Check the app's export options | Free tier |
+| [Postshot](https://www.jawset.com/) | Windows, NVIDIA GPU | Your own photos or video, trained on your PC | PLY | Free plan is non-commercial and cannot export splats |
+| [nerfstudio (Splatfacto)](https://docs.nerf.studio/) | Linux (Windows less tested), CUDA GPU | Photos or video | PLY | Free, open source |
+
+Luma's flagship product is now Dream Machine (video generation), so its capture app is updated less often. If
+its export menu looks different from what is described here, use one of the others: every splat trainer can
+export a `.ply`, which the skill reads.
+
+### 3. Export and hand it over
+
+- Export the **Gaussian splat as `.ply`**. Some apps (Luma) download a ZIP: unzip it and use the `.ply` inside.
+- If the app also offers a **textured mesh** (Luma: GLB), export that too. In the example, the point cloud
+  gave the surroundings and the textured GLB gave the site; the skill reads either one on its own.
+- Optional: crop stray splats first in a splat editor such as [SuperSplat](https://superspl.at/editor).
+- Then follow [Use](#use): give Claude the file path(s), the place name and its location.
+
+Tool details and prices change. Last checked 28 Oct 2026.
 
 ## Install
 
